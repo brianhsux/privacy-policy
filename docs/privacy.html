@@ -3,26 +3,100 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>資料安全與隱私政策</title>
+  <title>資料安全與隱私政策 | Data Security and Privacy Policy | 数据安全与隐私政策</title>
   <style>
     body { font-family: Arial, sans-serif; line-height: 1.6; padding: 20px; max-width: 800px; margin: auto; }
     h1, h2 { color: #333; }
     ul { margin-top: 0; }
     a { color: #1a0dab; text-decoration: none; }
     a:hover { text-decoration: underline; }
+    .lang-switcher { margin-bottom: 20px; }
+    select { padding: 5px; font-size: 16px; }
   </style>
 </head>
 <body>
-  <h1>資料安全與隱私政策</h1>
-  <h2>資料安全</h2>
-  <ul>
-    <li>本應用不會收集個人識別資料，所有資料僅保存在本機。如啟用同步功能，僅傳輸運動記錄，並全程使用 HTTPS 加密。</li>
-  </ul>
-  <h2>權限列表</h2>
-  <ul>
-    <li>存取本機檔案：讀寫運動記錄資料庫。</li>
-    <li>網路存取：同步或備份資料時使用。</li>
-  </ul>
+  <div class="lang-switcher">
+    <label for="language">選擇語言 | Select Language | 选择语言: </label>
+    <select id="language" onchange="changeLanguage()">
+      <option value="zh-Hant">繁體中文</option>
+      <option value="zh-Hans">简体中文</option>
+      <option value="en">English</option>
+    </select>
+  </div>
+  <h1 id="title"></h1>
+  <h2 id="security-title"></h2>
+  <ul id="security-content"></ul>
+  <h2 id="permissions-title"></h2>
+  <ul id="permissions-content"></ul>
 
+  <script>
+    const translations = {
+      'zh-Hant': {
+        title: '資料安全與隱私政策',
+        securityTitle: '資料安全',
+        securityContent: [
+          '本應用不會收集個人識別資料，所有資料僅保存在本機。如啟用同步功能，僅傳輸運動記錄，並全程使用 HTTPS 加密。'
+        ],
+        permissionsTitle: '權限列表',
+        permissionsContent: [
+          '存取本機檔案：讀寫運動記錄資料庫。',
+          '網路存取：同步或備份資料時使用。'
+        ]
+      },
+      'zh-Hans': {
+        title: '数据安全与隐私政策',
+        securityTitle: '数据安全',
+        securityContent: [
+          '本应用不会收集个人识别数据，所有数据仅保存在本地。如启用同步功能，仅传输运动记录，并全程使用 HTTPS 加密。'
+        ],
+        permissionsTitle: '权限列表',
+        permissionsContent: [
+          '访问本地文件：读写运动记录数据库。',
+          '网络访问：同步或备份数据时使用。'
+        ]
+      },
+      'en': {
+        title: 'Data Security and Privacy Policy',
+        securityTitle: 'Data Security',
+        securityContent: [
+          'This application does not collect personally identifiable information; all data is stored locally. If the sync function is enabled, only exercise records are transmitted, fully encrypted via HTTPS.'
+        ],
+        permissionsTitle: 'Permissions List',
+        permissionsContent: [
+          'Access local files: Read and write to the exercise records database.',
+          'Network access: Used for syncing or backing up data.'
+        ]
+      }
+    };
+
+    function changeLanguage() {
+      const lang = document.getElementById('language').value;
+      document.getElementById('title').textContent = translations[lang].title;
+      document.getElementById('security-title').textContent = translations[lang].securityTitle;
+      document.getElementById('permissions-title').textContent = translations[lang].permissionsTitle;
+
+      const securityList = document.getElementById('security-content');
+      securityList.innerHTML = '';
+      translations[lang].securityContent.forEach(item => {
+        const li = document.createElement('li');
+        li.textContent = item;
+        securityList.appendChild(li);
+      });
+
+      const permissionsList = document.getElementById('permissions-content');
+      permissionsList.innerHTML = '';
+      translations[lang].permissionsContent.forEach(item => {
+        const li = document.createElement('li');
+        li.textContent = item;
+        permissionsList.appendChild(li);
+      });
+
+      document.documentElement.lang = lang;
+    }
+
+    // Initialize with Traditional Chinese
+    document.getElementById('language').value = 'zh-Hant';
+    changeLanguage();
+  </script>
 </body>
 </html>
