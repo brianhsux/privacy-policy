@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CoinVoyage 隱私權政策 | CoinVoyage Privacy Policy | CoinVoyage 隐私政策</title>
+  <style>
+    body { font-family: Arial, sans-serif; line-height: 1.6; padding: 20px; max-width: 800px; margin: auto; }
+    h1, h2 { color: #333; }
+    ul { margin-top: 0; }
+    a { color: #1a0dab; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .lang-switcher { margin-bottom: 20px; }
+    select { padding: 5px; font-size: 16px; }
+    .meta { color: #666; }
+  </style>
+</head>
+<body>
+  <div class="lang-switcher">
+    <label for="language">選擇語言 | Select Language | 选择语言: </label>
+    <select id="language" onchange="changeLanguage()">
+      <option value="zh-Hant">繁體中文</option>
+      <option value="zh-Hans">简体中文</option>
+      <option value="en">English</option>
+    </select>
+  </div>
+  <h1 id="title"></h1>
+  <p class="meta" id="effective"></p>
+  <p id="intro"></p>
+  <div id="sections"></div>
+
+  <script>
+    const CONTACT_EMAIL = 'brianhsudev@gmail.com';
+    const EFFECTIVE_DATE = '2026-10-18';
+
+    const translations = {
+      'zh-Hant': {
+        title: 'CoinVoyage 隱私權政策',
+        effective: '生效日期：' + EFFECTIVE_DATE,
+        intro: '本政策說明 CoinVoyage（以下稱「本 App」）會處理哪些資料、用途為何，以及您可以如何控制這些資料。',
+        sections: [
+          { title: '您的記帳資料', items: [
+            '您輸入的收支記錄、預算、分類、固定支出與旅行設定等資料，只儲存在您的裝置上，不會上傳到我們或任何第三方的伺服器。',
+            '本 App 沒有帳號系統，也不會要求您提供姓名、電子郵件、電話等個人資料。'
+          ]},
+          { title: '匯率服務', items: [
+            '更新匯率時，本 App 會連線到 ExchangeRate-API（https://open.er-api.com），並傳送您設定的基準貨幣代碼（例如 TWD）。不會傳送任何記帳資料。',
+            '與任何網站連線時一樣，該服務會收到您裝置的 IP 位址。相關處理請參考 ExchangeRate-API 的隱私權政策：https://www.exchangerate-api.com/terms'
+          ]},
+          { title: 'Firebase Crashlytics（當機回報）', items: [
+            '本 App 使用 Google 的 Firebase Crashlytics 收集當機記錄與診斷資訊，例如錯誤堆疊、裝置型號、作業系統版本、App 版本、前景使用時間，以及 Crashlytics 產生的安裝識別碼。',
+            '這些資料只用於找出並修正錯誤、改善 App 穩定性。'
+          ]},
+          { title: 'Firebase Analytics（使用分析）', items: [
+            '本 App 使用 Google 的 Firebase Analytics 了解 App 的使用情形，收集的資料包括：App 互動（例如畫面瀏覽、工作階段）、app-instance ID 與 Firebase Installation ID，以及由 IP 位址推算出的大概位置（國家／城市層級）。',
+            '這些資料只用於統計分析與改善 App，不會用來辨識您的身分。'
+          ]},
+          { title: '廣告', items: [
+            '本 App 沒有廣告，也不會收集廣告 ID（Advertising ID）。'
+          ]},
+          { title: '資料傳輸與分享', items: [
+            '上述所有網路傳輸都透過 HTTPS 加密。',
+            'Firebase 是代表我們處理資料的服務供應商；我們不會出售您的資料，也不會將資料分享給其他第三方作廣告或行銷用途。',
+            'Google 如何處理 Firebase 資料，請參考：https://firebase.google.com/support/privacy'
+          ]},
+          { title: '資料保存與刪除', items: [
+            '記帳資料存在您的裝置上，您可以在 App 內刪除，或透過清除 App 資料、解除安裝 App 將其全部刪除。',
+            'Crashlytics 與 Analytics 的資料依 Google Firebase 的保存期限保存後自動刪除。因為本 App 沒有帳號，這些資料不會與您的身分連結；重新安裝 App 會產生新的識別碼。'
+          ]},
+          { title: '兒童隱私', items: [
+            '本 App 並非以 13 歲以下兒童為對象，我們也不會在知情的情況下收集兒童的個人資料。'
+          ]},
+          { title: '政策變更', items: [
+            '本政策如有修改，會更新本頁內容與生效日期。'
+          ]},
+          { title: '聯絡我們', items: [
+            '對本政策有任何問題，請來信：' + CONTACT_EMAIL
+          ]}
+        ]
+      },
+      'zh-Hans': {
+        title: 'CoinVoyage 隐私政策',
+        effective: '生效日期：' + EFFECTIVE_DATE,
+        intro: '本政策说明 CoinVoyage（以下称“本 App”）会处理哪些数据、用途为何，以及您可以如何控制这些数据。',
+        sections: [
+          { title: '您的记账数据', items: [
+            '您输入的收支记录、预算、分类、固定支出与旅行设置等数据，只存储在您的设备上，不会上传到我们或任何第三方的服务器。',
+            '本 App 没有账号系统，也不会要求您提供姓名、电子邮件、电话等个人信息。'
+          ]},
+          { title: '汇率服务', items: [
+            '更新汇率时，本 App 会连接到 ExchangeRate-API（https://open.er-api.com），并发送您设置的基准货币代码（例如 CNY）。不会发送任何记账数据。',
+            '与访问任何网站时一样，该服务会收到您设备的 IP 地址。相关处理请参考 ExchangeRate-API 的隐私政策：https://www.exchangerate-api.com/terms'
+          ]},
+          { title: 'Firebase Crashlytics（崩溃报告）', items: [
+            '本 App 使用 Google 的 Firebase Crashlytics 收集崩溃日志与诊断信息，例如错误堆栈、设备型号、操作系统版本、App 版本、前台使用时长，以及 Crashlytics 生成的安装标识符。',
+            '这些数据只用于发现并修复错误、提升 App 稳定性。'
+          ]},
+          { title: 'Firebase Analytics（使用分析）', items: [
+            '本 App 使用 Google 的 Firebase Analytics 了解 App 的使用情况，收集的数据包括：App 互动（例如页面浏览、会话）、app-instance ID 与 Firebase Installation ID，以及由 IP 地址推算出的大致位置（国家／城市级别）。',
+            '这些数据只用于统计分析与改进 App，不会用来识别您的身份。'
+          ]},
+          { title: '广告', items: [
+            '本 App 没有广告，也不会收集广告 ID（Advertising ID）。'
+          ]},
+          { title: '数据传输与共享', items: [
+            '上述所有网络传输都通过 HTTPS 加密。',
+            'Firebase 是代表我们处理数据的服务提供商；我们不会出售您的数据，也不会将数据共享给其他第三方用于广告或营销。',
+            'Google 如何处理 Firebase 数据，请参考：https://firebase.google.com/support/privacy'
+          ]},
+          { title: '数据保存与删除', items: [
+            '记账数据存储在您的设备上，您可以在 App 内删除，或通过清除 App 数据、卸载 App 将其全部删除。',
+            'Crashlytics 与 Analytics 的数据按 Google Firebase 的保存期限保存后自动删除。由于本 App 没有账号，这些数据不会与您的身份关联；重新安装 App 会生成新的标识符。'
+          ]},
+          { title: '儿童隐私', items: [
+            '本 App 并非以 13 岁以下儿童为对象，我们也不会在知情的情况下收集儿童的个人信息。'
+          ]},
+          { title: '政策变更', items: [
+            '本政策如有修改，会更新本页内容与生效日期。'
+          ]},
+          { title: '联系我们', items: [
+            '对本政策有任何问题，请来信：' + CONTACT_EMAIL
+          ]}
+        ]
+      },
+      'en': {
+        title: 'CoinVoyage Privacy Policy',
+        effective: 'Effective date: ' + EFFECTIVE_DATE,
+        intro: 'This policy explains what data CoinVoyage ("the app") handles, why, and how you can control it.',
+        sections: [
+          { title: 'Your Expense Data', items: [
+            'The transactions, budgets, categories, recurring expenses and travel settings you enter are stored only on your device. They are never uploaded to our servers or any third party.',
+            'The app has no accounts and never asks for your name, email address, phone number or other personal information.'
+          ]},
+          { title: 'Exchange Rate Service', items: [
+            'When updating exchange rates, the app connects to ExchangeRate-API (https://open.er-api.com) and sends your base currency code (e.g. USD). No expense data is sent.',
+            'As with any internet request, the service receives your device\'s IP address. See ExchangeRate-API\'s terms and privacy policy: https://www.exchangerate-api.com/terms'
+          ]},
+          { title: 'Firebase Crashlytics (Crash Reporting)', items: [
+            'The app uses Google Firebase Crashlytics to collect crash logs and diagnostics, such as stack traces, device model, OS version, app version, time in foreground, and an installation identifier generated by Crashlytics.',
+            'This data is used only to find and fix bugs and improve app stability.'
+          ]},
+          { title: 'Firebase Analytics (Usage Analytics)', items: [
+            'The app uses Google Firebase Analytics to understand how the app is used. Data collected includes app interactions (e.g. screen views and sessions), the app-instance ID and Firebase Installation ID, and approximate location (country/city level) derived from your IP address.',
+            'This data is used only for statistics and improving the app, not to identify you.'
+          ]},
+          { title: 'Advertising', items: [
+            'The app shows no ads and does not collect the Advertising ID.'
+          ]},
+          { title: 'Data Transfer and Sharing', items: [
+            'All network transfers described above are encrypted with HTTPS.',
+            'Firebase acts as a service provider processing data on our behalf. We do not sell your data or share it with other third parties for advertising or marketing.',
+            'For how Google handles Firebase data, see: https://firebase.google.com/support/privacy'
+          ]},
+          { title: 'Data Retention and Deletion', items: [
+            'Expense data lives on your device. You can delete it within the app, or remove all of it by clearing the app\'s data or uninstalling the app.',
+            'Crashlytics and Analytics data is kept for Google Firebase\'s retention period and then deleted automatically. Because the app has no accounts, this data is not linked to your identity; reinstalling the app generates new identifiers.'
+          ]},
+          { title: 'Children\'s Privacy', items: [
+            'The app is not directed at children under 13, and we do not knowingly collect personal information from children.'
+          ]},
+          { title: 'Changes to This Policy', items: [
+            'If this policy changes, we will update this page and its effective date.'
+          ]},
+          { title: 'Contact Us', items: [
+            'If you have any questions about this policy, email: ' + CONTACT_EMAIL
+          ]}
+        ]
+      }
+    };
+
+    // 把文字中的網址與信箱轉成連結
+    function appendLinkified(parent, text) {
+      const pattern = /(https?:\/\/[^\s）)]+|[\w.+-]+@[\w-]+\.[\w.-]+)/g;
+      let last = 0;
+      let match;
+      while ((match = pattern.exec(text)) !== null) {
+        parent.appendChild(document.createTextNode(text.slice(last, match.index)));
+        const a = document.createElement('a');
+        const value = match[0];
+        a.href = value.includes('@') && !value.startsWith('http') ? 'mailto:' + value : value;
+        a.textContent = value;
+        parent.appendChild(a);
+        last = match.index + value.length;
+      }
+      parent.appendChild(document.createTextNode(text.slice(last)));
+    }
+
+    function changeLanguage() {
+      const lang = document.getElementById('language').value;
+      const t = translations[lang];
+      document.getElementById('title').textContent = t.title;
+      document.getElementById('effective').textContent = t.effective;
+      document.getElementById('intro').textContent = t.intro;
+
+      const container = document.getElementById('sections');
+      container.innerHTML = '';
+      t.sections.forEach(section => {
+        const h2 = document.createElement('h2');
+        h2.textContent = section.title;
+        container.appendChild(h2);
+        const ul = document.createElement('ul');
+        section.items.forEach(item => {
+          const li = document.createElement('li');
+          appendLinkified(li, item);
+          ul.appendChild(li);
+        });
+        container.appendChild(ul);
+      });
+
+      document.documentElement.lang = lang;
+    }
+
+    // 預設語言：網址參數 ?lang= 優先，否則依瀏覽器語言
+    function initialLanguage() {
+      const param = new URLSearchParams(location.search).get('lang');
+      if (param && translations[param]) return param;
+      const nav = (navigator.language || '').toLowerCase();
+      if (nav.startsWith('zh')) {
+        return /(cn|sg|hans)/.test(nav) ? 'zh-Hans' : 'zh-Hant';
+      }
+      return nav ? 'en' : 'zh-Hant';
+    }
+
+    document.getElementById('language').value = initialLanguage();
+    changeLanguage();
+  </script>
+</body>
+</html>
