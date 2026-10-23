@@ -31,7 +31,7 @@
 
   <script>
     const CONTACT_EMAIL = 'brianhsudev@gmail.com';
-    const EFFECTIVE_DATE = '2026-10-18';
+    const EFFECTIVE_DATE = '2026-10-23';
 
     const translations = {
       'zh-Hant': {
@@ -60,6 +60,14 @@
             '本 App 使用 Google 的 Firebase Analytics 了解 App 的使用情形，收集的資料包括：App 互動（例如畫面瀏覽、工作階段）、app-instance ID 與 Firebase Installation ID，以及由 IP 位址推算出的大概位置（國家／城市層級）。',
             '這些資料只用於統計分析與改善 App，不會用來辨識您的身分。'
           ]},
+          { title: '關閉使用統計與當機報告', items: [
+            'Analytics 與 Crashlytics 預設開啟。您可以隨時在 App 的「設定」→「關於」關閉「傳送使用統計與當機報告」；關閉後兩者都會停止收集，尚未送出的當機報告也會從裝置上刪除。之後也可以再打開。'
+          ]},
+          { title: '備份檔與 CSV 匯出', items: [
+            '「匯出備份」與「匯出 CSV」會透過系統的存檔畫面，把檔案存到您自己選擇的位置（例如手機的下載資料夾或雲端硬碟）。本 App 不會上傳這些檔案，也無法讀取您存放的位置。',
+            '備份檔包含您所有的記帳資料、預算、類別與設定，請自行妥善保管；若存到雲端硬碟，該服務如何處理檔案依其隱私權政策而定。',
+            '「從備份還原」只會讀取您自己選的檔案。'
+          ]},
           { title: '廣告', items: [
             '本 App 沒有廣告，也不會收集廣告 ID（Advertising ID）。'
           ]},
@@ -70,7 +78,13 @@
           ]},
           { title: '資料保存與刪除', items: [
             '記帳資料與下載的假日資料都存在您的裝置上，您可以在 App 內刪除記帳資料，或透過清除 App 資料、解除安裝 App 將其全部刪除。',
+            '「設定」→「資料」→「清除所有資料」會刪除裝置上的記帳資料。為了避免誤刪，清除或從備份還原之前，App 會在自己的私有資料夾另存一份當時的資料（最多保留最近 5 份），其他 App 無法讀取；這些副本會在清除 App 資料或解除安裝時一併刪除。',
             'Crashlytics 與 Analytics 的資料依 Google Firebase 的保存期限保存後自動刪除。因為本 App 沒有帳號，這些資料不會與您的身分連結；重新安裝 App 會產生新的識別碼。'
+          ]},
+          { title: '歐盟／歐洲經濟區使用者', items: [
+            '我們處理 Analytics 與 Crashlytics 資料的法律依據是正當利益（GDPR 第 6 條第 1 項 f 款）：維持 App 穩定、找出錯誤並改善功能。您可以隨時在設定中關閉，以反對這項處理。',
+            'Firebase 可能在歐盟以外（包括美國）的伺服器處理資料，Google 依歐盟執委會核准的標準契約條款等機制保障跨境傳輸。',
+            '您有權要求存取、更正、刪除或限制處理您的資料，也可以向您所在地的資料保護主管機關申訴。由於本 App 沒有帳號，我們通常無法辨識哪些 Firebase 資料屬於您；如需協助，請來信說明。'
           ]},
           { title: '兒童隱私', items: [
             '本 App 並非以 13 歲以下兒童為對象，我們也不會在知情的情況下收集兒童的個人資料。'
@@ -109,6 +123,14 @@
             '本 App 使用 Google 的 Firebase Analytics 了解 App 的使用情况，收集的数据包括：App 互动（例如页面浏览、会话）、app-instance ID 与 Firebase Installation ID，以及由 IP 地址推算出的大致位置（国家／城市级别）。',
             '这些数据只用于统计分析与改进 App，不会用来识别您的身份。'
           ]},
+          { title: '关闭使用统计与崩溃报告', items: [
+            'Analytics 与 Crashlytics 默认开启。您可以随时在 App 的“设置”→“关于”关闭“发送使用统计与崩溃报告”；关闭后两者都会停止收集，尚未发送的崩溃报告也会从设备上删除。之后也可以再打开。'
+          ]},
+          { title: '备份文件与 CSV 导出', items: [
+            '“导出备份”与“导出 CSV”会通过系统的保存界面，把文件存到您自己选择的位置（例如手机的下载文件夹或云盘）。本 App 不会上传这些文件，也无法读取您存放的位置。',
+            '备份文件包含您所有的记账数据、预算、类别与设置，请自行妥善保管；若存到云盘，该服务如何处理文件依其隐私政策而定。',
+            '“从备份恢复”只会读取您自己选的文件。'
+          ]},
           { title: '广告', items: [
             '本 App 没有广告，也不会收集广告 ID（Advertising ID）。'
           ]},
@@ -119,7 +141,13 @@
           ]},
           { title: '数据保存与删除', items: [
             '记账数据与下载的假日数据都存储在您的设备上，您可以在 App 内删除记账数据，或通过清除 App 数据、卸载 App 将其全部删除。',
+            '“设置”→“数据”→“清除所有数据”会删除设备上的记账数据。为了避免误删，清除或从备份恢复之前，App 会在自己的私有文件夹另存一份当时的数据（最多保留最近 5 份），其他 App 无法读取；这些副本会在清除 App 数据或卸载时一并删除。',
             'Crashlytics 与 Analytics 的数据按 Google Firebase 的保存期限保存后自动删除。由于本 App 没有账号，这些数据不会与您的身份关联；重新安装 App 会生成新的标识符。'
+          ]},
+          { title: '欧盟／欧洲经济区用户', items: [
+            '我们处理 Analytics 与 Crashlytics 数据的法律依据是正当利益（GDPR 第 6 条第 1 款 f 项）：保持 App 稳定、发现错误并改进功能。您可以随时在设置中关闭，以反对这项处理。',
+            'Firebase 可能在欧盟以外（包括美国）的服务器处理数据，Google 依欧盟委员会批准的标准合同条款等机制保障跨境传输。',
+            '您有权要求访问、更正、删除或限制处理您的数据，也可以向您所在地的数据保护监管机构投诉。由于本 App 没有账号，我们通常无法识别哪些 Firebase 数据属于您；如需协助，请来信说明。'
           ]},
           { title: '儿童隐私', items: [
             '本 App 并非以 13 岁以下儿童为对象，我们也不会在知情的情况下收集儿童的个人信息。'
@@ -158,6 +186,14 @@
             'The app uses Google Firebase Analytics to understand how the app is used. Data collected includes app interactions (e.g. screen views and sessions), the app-instance ID and Firebase Installation ID, and approximate location (country/city level) derived from your IP address.',
             'This data is used only for statistics and improving the app, not to identify you.'
           ]},
+          { title: 'Turning Off Usage Stats and Crash Reports', items: [
+            'Analytics and Crashlytics are on by default. You can turn off "Send usage stats and crash reports" at any time under Settings → About in the app. Both then stop collecting, and crash reports that have not been sent yet are deleted from your device. You can turn it back on later.'
+          ]},
+          { title: 'Backup Files and CSV Export', items: [
+            '"Export backup" and "Export CSV" use your system\'s save screen to store the file wherever you choose (for example your Downloads folder or a cloud drive). The app never uploads these files and cannot read the place you save them.',
+            'A backup file contains all your entries, budgets, categories and settings, so keep it safe. If you save it to a cloud drive, that service\'s privacy policy applies to the file.',
+            '"Restore from backup" only reads the file you pick.'
+          ]},
           { title: 'Advertising', items: [
             'The app shows no ads and does not collect the Advertising ID.'
           ]},
@@ -168,7 +204,13 @@
           ]},
           { title: 'Data Retention and Deletion', items: [
             'Expense data and downloaded holiday data live only on your device. You can delete expense data within the app, or remove all of it by clearing the app\'s data or uninstalling the app.',
+            'Settings → Data → "Clear all data" deletes your entries from the device. To guard against mistakes, before clearing or restoring from a backup the app saves a copy of your current data in its own private folder (keeping the 5 most recent), which other apps cannot read. These copies are deleted when you clear the app\'s data or uninstall it.',
             'Crashlytics and Analytics data is kept for Google Firebase\'s retention period and then deleted automatically. Because the app has no accounts, this data is not linked to your identity; reinstalling the app generates new identifiers.'
+          ]},
+          { title: 'Users in the EU/EEA', items: [
+            'Our legal basis for processing Analytics and Crashlytics data is legitimate interest (Article 6(1)(f) GDPR): keeping the app stable, finding bugs and improving features. You can object at any time by turning it off in Settings.',
+            'Firebase may process data on servers outside the EU, including in the United States. Google safeguards these transfers with mechanisms such as the European Commission\'s Standard Contractual Clauses.',
+            'You have the right to request access to, correction, deletion or restriction of your data, and to lodge a complaint with your local data protection authority. Because the app has no accounts, we usually cannot tell which Firebase data is yours; if you need help, email us.'
           ]},
           { title: 'Children\'s Privacy', items: [
             'The app is not directed at children under 13, and we do not knowingly collect personal information from children.'
